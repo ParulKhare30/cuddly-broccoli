@@ -315,7 +315,7 @@ void searchalbum()
 		{	system("cls");
 			printf("SEARCH RESULTS  ");
 			printf("\n-----------------------------------");
-			printf("\n\n\nYear: %s\n\nName: %s\n\nArtist: %s\n\nPrice: Rs.%d\n-----------------------------------",s.year,s.name,s.artist,s.price);
+			printf("\n\n\nYear: %s\n\nName: %s\n\nArtist: %s\n\nPrice: Rs.%s\n-----------------------------------",s.year,s.name,s.artist,s.price);
 			printf("\n\n\n\n\n\n\n\n\n\nPress any key to Return Back to < MAIN MENU >");
 			flag=0;
 			break;
