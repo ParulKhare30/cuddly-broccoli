@@ -1,7 +1,6 @@
 #include<stdio.h>
 #include<string.h>
 #include<windows.h>
-#include<ctype.h>
 #include<stdlib.h>
 #include<conio.h>
 #include<time.h>
@@ -30,7 +29,9 @@ int main()
 
 void welcome()
 {
+
 	int i;
+
 	
 	time_t t;
 	time(&t);
@@ -39,29 +40,29 @@ void welcome()
 	printf("\n");
 	printf("\n");
 	printf("\n");
-	printf("\n                                                 WELCOME                         ");
+	printf("\n                                            WELCOME USER!                        ");
 	printf("\n                           _________________________________________________     ");
-	printf("\n                          *                                                 *     ");
-	printf("\n                          *                                                 *     ");
-	printf("\n                          *    ********ALBUM MANAGEMENT SYSTEM*******       *     ");
-	printf("\n                          *                                                 *     ");
-	printf("\n                          *                                                 *     ");
-	printf("\n                          *                                                 *     ");
-	printf("\n                          *                                                 *     ");
-	printf("\n                          *                                                 *     ");
-	printf("\n                          *  Press-ENTER                                    *     ");
-	printf("\n                          *                                                 *     ");
-	printf("\n                          *_________________________________________________*     ");
+	printf("\n                          :                                                 :     ");
+	printf("\n                          |                                                 |     ");
+	printf("\n                          :    ********ALBUM MANAGEMENT SYSTEM*******       :     ");
+	printf("\n                          |                                                 |     ");
+	printf("\n                          :                                                 :     ");
+	printf("\n                          :                                                 |     ");
+	printf("\n                          |                                                 :     ");
+	printf("\n                          :                                                 |     ");
+	printf("\n                          |  Press-ENTER                                    :     ");
+	printf("\n                          :                                                 |     ");
+	printf("\n                          |_________________________________________________:     ");
 	printf("\n\n");
 	
 
-			printf("\nCurrent date and time : %s",ctime(&t));
+    printf("\n\t\t\t\t\t\t\t\tCurrent date and time : %s",ctime(&t));
 		
 	
 	getchar();
 	system("cls");
 
-//	return 0;
+
 
 }
 
@@ -136,28 +137,28 @@ void menu();
 	system("cls");
 	while(1)
 	{
-		system("COLOR 4E");
+		system("COLOR 09");
 		system("cls");
 		printf("\n");
 	
 		printf("\n");
-		printf("\n                   _________ALBUM MANAGEMENT SYSTEM________                  ");
+		printf("\n                   _________ALBUM MANAGEMENT SYSTEM_______                  ");
 		printf("\n");
 		printf("\n                                   MENU                                      ");
-		printf("\n\n                       Press  1 :  ADD NEW ALBUM                           ");
+		printf("\n\n                       Press  1 :  ADD NEW ALBUM                          ");
 		printf("\n\n                       Press  2 :  EDIT EXISTING ALBUM                     ");
 		printf("\n\n                       Press  3 :  VIEW ALBUMS                             ");
 		printf("\n\n                       Press  4 :  SEARCH ALBUMS                           ");
 		printf("\n\n                       Press  5 :  Exit                                    ");
 		printf("\n\n");
-		for(i=0;i<50;i++)
-		printf("-");
-	    printf("\nCurrent date and time : %s",ctime(&t));
-	    for(i=0;i<50;i++)
-		printf("-");
+		for(i=0;i<125;i++)
+		printf("_");
+	    printf("\n\t\t\t\t\t\t\t\t\tCurrent date and time : %s",ctime(&t));
+	    for(i=0;i<125;i++)
+		printf("_");
 		
 		choice=getch();
-		choice=toupper(choice);
+	
 		switch(choice)
 		
 		{
@@ -170,7 +171,7 @@ void menu();
 			case '3':
 				viewalbum();
 				break;
-                                            case '4':
+                        case '4':
 				searchalbum();
 				break;
 			
@@ -183,7 +184,7 @@ void menu();
 			default:
  				system("cls");
 				printf("INVALID KEYWORD. PLEASE ENTER A VALID KEYWORD TO CHOOSE.                        ");
-				printf("\nPress any key to continue..........                                           ");
+				printf("\n\t\t\t\t\t\t\tPress any key to continue..........                                           ");
 				getch();
 		}
 	}
@@ -192,8 +193,10 @@ void menu();
 
 void addnewalbum()
 {
+	system("COLOR E0");
+		system("cls");
 	FILE *Album;
-	char test;
+	
 	Album=fopen("Album.txt","a");
 	if(Album==0)
 	{
@@ -220,10 +223,9 @@ void addnewalbum()
 		
 		printf("\n\n");
 		printf("    Album is Successfully recorded. \n\n");
-		printf("\n     * Press any Key to Continue ");
+		printf("\n \t\t\t\t\t    * Press any Key to Continue ");
 		printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n                                 Press ESC to return back to < MAIN MENU >");
-		test=getche();
-		if(test==27)
+		
 			break;
 	}
 	fclose(Album);
@@ -231,8 +233,10 @@ void addnewalbum()
 
 void editalbum()
 {
+	system("COLOR 5F");
+		system("cls");
 	FILE *Album;
-	char test;
+	
 	char year[20];
 	long int size=sizeof(s);
 	if((Album=fopen("Album.txt","r+"))==NULL)exit(0);
@@ -259,13 +263,12 @@ void editalbum()
 			fwrite(&s,sizeof(s),1,Album);
 			fflush(stdin);
 			system("cls");
-			//break;
+			
 			
 			printf("\n\n");
 			printf("   Album is Successfully edited. \n\n");
 			printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n                                 Press ESC to return back to < MAIN MENU >");
-			test=getche();
-			if(test==27)
+			
          	break;
 		}
 	}
@@ -274,6 +277,8 @@ void editalbum()
 
 void viewalbum()
 {
+	system("COLOR C0");
+		system("cls");
 	FILE *Album;
 	int i,j;
 	if((Album=fopen("Album.txt","r"))==NULL)
@@ -298,6 +303,8 @@ getch();
 
 void searchalbum()
 {
+	system("COLOR 37");
+		system("cls");
 	FILE *Album;
 	char year[20];
 	int flag=1;
@@ -312,7 +319,8 @@ void searchalbum()
 	while(fread(&s,sizeof(s),1,Album)==1)
 	{
 		if(strcmp(s.year,year)==0)
-		{	system("cls");
+		{	
+			system("cls");
 			printf("SEARCH RESULTS  ");
 			printf("\n-----------------------------------");
 			printf("\n\n\nYear: %s\n\nName: %s\n\nArtist: %s\n\nPrice: Rs.%s\n-----------------------------------",s.year,s.name,s.artist,s.price);
@@ -329,6 +337,10 @@ void searchalbum()
 	getch();
 	fclose(Album);
 }
+
+
+
+
 
 
 
